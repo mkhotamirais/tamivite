@@ -41,6 +41,10 @@ import UseMemo from "./pages/react/UseMemo.tsx";
 import UseReducer from "./pages/react/UseReducer.tsx";
 import Memo from "./pages/react/Memo.tsx";
 import Todo from "./pages/apps/todo/Todo.tsx";
+import UseRef from "./pages/react/UseRef.tsx";
+import Typescript1 from "./pages/basic/Typescript1.tsx";
+import Typescript2 from "./pages/basic/Typescript2.tsx";
+import Typescript3 from "./pages/basic/Typescript3.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -63,6 +67,9 @@ const router = createBrowserRouter(
       <Route path="canvas" element={<Canvas />} />
       <Route path="svg" element={<Svg />} />
       <Route path="css-background" element={<CssBackground />} />
+      <Route path="typescript-1" element={<Typescript1 />} />
+      <Route path="typescript-2" element={<Typescript2 />} />
+      <Route path="typescript-3" element={<Typescript3 />} />
       {/* components */}
       <Route path="carousel" element={<Carousel />} />
       <Route path="accordion-1" element={<Accordion1 />} />
@@ -86,6 +93,7 @@ const router = createBrowserRouter(
       {/* react */}
       <Route path="use-state" element={<UseState />} />
       <Route path="use-effect" element={<UseEffect />} />
+      <Route path="use-ref" element={<UseRef />} />
       <Route path="use-context" element={<UseContext />} />
       <Route path="use-memo" element={<UseMemo />} />
       <Route path="use-reducer" element={<UseReducer />} />

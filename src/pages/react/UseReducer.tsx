@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { Container } from "@/components/wrapper";
 import React, { useReducer } from "react";
 
 type Action =
@@ -34,40 +36,50 @@ export default function UseReducer() {
 
   const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) =>
     dispatch({ type: "setName", name: e.target.value });
+
   const handlePlusAge = () => dispatch({ type: "incAge" });
+
   const handleMinusAge = () => dispatch({ type: "decAge" });
+
   const handleGender = () => {
     const gender = state.gender === "male" ? "female" : "male";
     dispatch({ type: "setGender", gender });
   };
 
   return (
-    <div className="min-h-screen bg-gray-200 flex items-center justify-center">
-      <div className="w-[300px] bg-white p-4">
-        <h2 className="text-lg font-bold mb-2">useReducer Example</h2>
-        <div>
-          <div className="mb-2">
-            name: {state.name}; age: {state.age}; gender: {state.gender}
-          </div>
-          <div className="mb-2">
-            <label>
-              Name:{" "}
-              <input title="input" type="text" value={state.name} onChange={handleChangeName} className="border p-1" />
-            </label>
-          </div>
-          <div>
-            <button onClick={handlePlusAge} className="underline mx-2">
-              plus age
-            </button>
-            <button onClick={handleMinusAge} className="underline mx-2">
-              minus age
-            </button>
-            <button onClick={handleGender} className="underline mx-2">
-              switch gender
-            </button>
+    <div className="bg-gray-50">
+      <Container>
+        <div className="px-3">
+          <h2 className="text-xl font-bold my-3 text-center">useReducer</h2>
+          <div className="border p-2 rounded">
+            <div className="mb-2 text-center flex flex-col items-center gap-3">
+              <div>
+                {state.name || "ahmad"} - {state.age || "20"} - {state.gender || "female"}
+              </div>
+              <div className="flex gap-1 flex-wrap">
+                <input
+                  title="input1"
+                  type="text"
+                  value={state.name}
+                  onChange={handleChangeName}
+                  className="border p-1"
+                />
+              </div>
+            </div>
+            <div className="flex justify-center gap-1 flex-wrap my-3">
+              <Button size="sm" onClick={handlePlusAge}>
+                plus age
+              </Button>
+              <Button size="sm" onClick={handleMinusAge}>
+                minus age
+              </Button>
+              <Button size="sm" onClick={handleGender}>
+                switch gender
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

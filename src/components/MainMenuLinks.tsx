@@ -24,6 +24,9 @@ const menu = [
       { href: "/canvas", label: "Canvas" },
       { href: "/svg", label: "SVG" },
       { href: "/css-background", label: "Css Background" },
+      { href: "/typescript-1", label: "Typescript 1" },
+      { href: "/typescript-2", label: "Typescript 2" },
+      { href: "/typescript-3", label: "Typescript 3" },
     ],
   },
   {
@@ -67,6 +70,7 @@ const menu = [
     links: [
       { href: "/use-state", label: "useState" },
       { href: "/use-effect", label: "useEffect" },
+      { href: "/use-ref", label: "useRef" },
       { href: "/use-context", label: "useContext" },
       { href: "/use-callback", label: "useCallback" },
       { href: "/use-memo", label: "useMemo" },

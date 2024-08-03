@@ -7,7 +7,7 @@ interface MmState {
 }
 
 export const useMm = create<MmState>((set) => ({
-  mm: true,
+  mm: false,
   openMm: () => set({ mm: true }),
   closeMm: () => set({ mm: false }),
 }));

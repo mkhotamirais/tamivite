@@ -127,7 +127,7 @@ export default function Todo1() {
 
   return (
     <div className="space-y-1">
-      <h1 className="text-xl font-bold">Todo1</h1>
+      <h2 className="text-xl font-bold my-2">Todo1</h2>
       <p>Deskripsi todo1</p>
       <Todo1Add text={text} setText={setText} addTodo={addTodo} setMsg={setMsg} setIsEdit={setIsEdit} />
       {msg && <div className="italic text-cyan-500 py-2">{msg}</div>}
@@ -147,7 +147,9 @@ export default function Todo1() {
                 />
                 <label htmlFor="checkAllData font-semibold">Check All</label>
               </div>
-              <Todo1DelAllDialog deleteChecked={deleteChecked} checkedLength={checkedLength} todo={todo} />
+              {checkedLength > 0 && (
+                <Todo1DelAllDialog deleteChecked={deleteChecked} checkedLength={checkedLength} todo={todo} />
+              )}
             </div>
             <div className="flex flex-col gap-1 mt-2">
               {todo

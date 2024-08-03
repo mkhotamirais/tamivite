@@ -12,7 +12,7 @@ const todoMenu = [
 ];
 
 export default function Todo() {
-  const [activeTodo, setActiveTodo] = useState("Todo1");
+  const [activeTodo, setActiveTodo] = useState("Todo2");
   return (
     <div className="bg-gray-50">
       <Container>
