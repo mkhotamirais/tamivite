@@ -1,4 +1,14 @@
+import { Button } from "@/components/ui/button";
+import { useMm } from "@/hooks/useMm";
+import React from "react";
+
 export default function Home() {
+  const { mm, openMm, closeMm } = useMm();
+  const onClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
+    mm ? closeMm() : openMm();
+  };
+
   return (
     <div className="px-3 flex flex-col gap-5 items-center justify-center min-h-screen bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-100 to-cyan-500">
       <div className="text-center">
@@ -6,6 +16,9 @@ export default function Home() {
           Welcome <span className="capitalize">Visitor</span>
         </h1>
         <p className="text-xl font-medium">I am khotami, I am a web developer, my focus is react / nextjs</p>
+        <Button onClick={onClick} size="lg" className="my-8 rounded-full">
+          Explore
+        </Button>
       </div>
     </div>
   );

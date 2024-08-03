@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./redux/store.ts";
 import Home from "./pages/Home.tsx";
 import Jp from "./pages/publicapi/Jp.tsx";
 import Teori from "./pages/Teori.tsx";
@@ -38,6 +40,7 @@ import UseCallback from "./pages/react/UseCallback.tsx";
 import UseMemo from "./pages/react/UseMemo.tsx";
 import UseReducer from "./pages/react/UseReducer.tsx";
 import Memo from "./pages/react/Memo.tsx";
+import Todo from "./pages/apps/todo/Todo.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -48,6 +51,7 @@ const router = createBrowserRouter(
       <Route path="clock" element={<Clock />} />
       <Route path="stopwatch" element={<Stopwatch />} />
       <Route path="symbol-color" element={<SymbolColor />} />
+      <Route path="todo" element={<Todo />} />
       {/* html */}
       <Route path="html-accordion" element={<HtmlAccordion />} />
       <Route path="html-carousel" element={<HtmlCarousel />} />
@@ -93,6 +97,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
