@@ -1,9 +1,19 @@
-import { Button } from "./components/ui/button";
+import { Outlet, ScrollRestoration } from "react-router-dom";
+import { useMm } from "./hooks/useMm";
+import { MainMenu } from "./components/MainMenu";
 
 export default function App() {
+  const { mm, closeMm } = useMm();
+  const onMouseEnter = () => {
+    if (mm) closeMm();
+  };
   return (
-    <div>
-      <Button variant="destructive">hgalo</Button>
-    </div>
+    <>
+      <main onMouseEnter={onMouseEnter}>
+        <Outlet />
+      </main>
+      <MainMenu />
+      <ScrollRestoration />
+    </>
   );
 }

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>accordion</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      .acc-btn {
+        cursor: pointer;
+        background: white;
+        width: 100%;
+        border: none;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .acc-btn::after {
+        content: "+";
+      }
+
+      .expand::after {
+        content: "-";
+      }
+
+      .acc-collapse {
+        max-height: 0;
+        overflow: hidden;
+        border-bottom: 1px solid;
+        transition: 0.2s;
+      }
+
+      .acc-collapse p {
+        padding: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Accordion</h2>
+    <div class="acc-container">
+      <button type="button" class="acc-btn">Acc1</button>
+      <div class="acc-collapse">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, alias.</p>
+      </div>
+      <button type="button" class="acc-btn">Acc1</button>
+      <div class="acc-collapse">
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi laboriosam tempore sit nobis, magnam odit qui
+          neque porro perspiciatis aliquam eaque minus nam rerum dolor praesentium nulla exercitationem. Dicta cum, iste
+          reiciendis mollitia doloribus excepturi numquam. Officia odio repudiandae laboriosam?
+        </p>
+      </div>
+      <button type="button" class="acc-btn">Acc1</button>
+      <div class="acc-collapse">
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi illum reiciendis debitis iste officiis dolorum
+          soluta fugit quasi placeat eius, repellendus dolor quae harum laboriosam aspernatur pariatur eligendi
+          voluptatem cupiditate possimus perspiciatis molestias molestiae facere ea voluptate! Earum facilis voluptatem
+          cum distinctio officiis vel quia odit porro, est ex, amet atque, commodi nisi cumque blanditiis animi
+          architecto velit tenetur voluptatibus quis sit? Autem vero, veritatis quo fugit debitis sunt iste?
+        </p>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      const accBtn = document.querySelectorAll(".acc-btn");
+
+      accBtn.forEach((accButton, i) => {
+        accButton.addEventListener("click", function () {
+          this.classList.toggle("expand");
+          const accCollapse = this.nextElementSibling;
+          if (this.classList.contains("expand")) {
+            accCollapse.style.maxHeight = `${accCollapse.scrollHeight}px`;
+          } else {
+            accCollapse.style.maxHeight = 0;
+          }
+          autoCollapse(i);
+        });
+        window.addEventListener("click", function (e) {
+          if (e.target !== accButton) {
+            accButton.nextElementSibling.style.maxHeight = 0;
+            accButton.classList.remove("expand");
+          }
+        });
+      });
+
+      function autoCollapse(i) {
+        accBtn.forEach((accButton2, i2) => {
+          if (i !== i2) {
+            const accCollapse2 = accButton2.nextElementSibling;
+            accButton2.classList.remove("expand");
+            accCollapse2.style.maxHeight = 0;
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
