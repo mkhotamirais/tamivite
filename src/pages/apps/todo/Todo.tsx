@@ -12,13 +12,19 @@ const todoMenu = [
 ];
 
 export default function Todo() {
-  const [activeTodo, setActiveTodo] = useState("Todo2");
+  const [activeTodo, setActiveTodo] = useState("Todo3");
   return (
     <div className="bg-gray-50">
       <Container>
         <header className="sticky top-0 px-3 h-16 flex gap-1 items-center justify-center bg-gray-200">
           {todoMenu.map((item, i) => (
-            <Button onClick={() => setActiveTodo(item.title)} key={i} className="rounded-full" size="sm">
+            <Button
+              variant={activeTodo === item.title ? "default" : "outline"}
+              onClick={() => setActiveTodo(item.title)}
+              key={i}
+              className="rounded-full"
+              size="sm"
+            >
               {item.title}
             </Button>
           ))}

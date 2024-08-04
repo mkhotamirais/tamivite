@@ -8,7 +8,7 @@ import { enqueueSnackbar } from "notistack";
 export default function Todo2Add() {
   const context = useContext(Todo2Context);
   if (!context) throw Error("Data must be used");
-  const { dispatch, text, setText } = context;
+  const { dispatch, text, setText, setIsEdit } = context;
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,9 +21,13 @@ export default function Todo2Add() {
     } else enqueueSnackbar(`Input required`, { variant: "error" });
   };
 
+  const onFocus = () => {
+    setIsEdit(null);
+  };
+
   return (
     <form onSubmit={onSubmit} className="flex gap-1">
-      <Input placeholder="add todo" value={text} onChange={(e) => setText(e.target.value)} />
+      <Input onFocus={onFocus} placeholder="add todo" value={text} onChange={(e) => setText(e.target.value)} />
       <Button type="submit">Submit</Button>
     </form>
   );
