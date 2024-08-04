@@ -8,38 +8,45 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { deleteChecked } from "@/redux/features/todoSlice";
-import { RootState } from "@/redux/store";
+import { InitialTodo, useTodo } from "@/hooks/useTodo";
+import { Trash, X } from "lucide-react";
 import React from "react";
-import toast from "react-hot-toast";
-import { useDispatch, useSelector } from "react-redux";
+import { toast } from "sonner";
 
-export default function Todo3DelAllDialog({ checkedLength }: { checkedLength: number }) {
-  const { todo } = useSelector((state: RootState) => state.todo);
-  const dispatch = useDispatch();
+interface Todo2DelDialogProps {
+  item: InitialTodo;
+  setNewText: React.Dispatch<React.SetStateAction<string>>;
+}
 
+export default function Todo4DelDialog({ item, setNewText }: Todo2DelDialogProps) {
+  const { isEdit, setIsEdit, delTodo } = useTodo();
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(deleteChecked());
-    if (checkedLength === todo.length) {
-      toast.success(`Delete all data success, total deleted ${todo.length} data`);
-    } else toast.success(`Delete ${checkedLength} data success`);
+    delTodo(item.id);
+    toast.success(`Delete ${item.text} success`);
+  };
+
+  const onCancel = () => {
+    setNewText(item.text);
+    setIsEdit(null);
   };
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="destructive" size="sm">
-          Delete Checked
+      {isEdit === item.id ? (
+        <Button variant="link" size="icon" onClick={onCancel}>
+          <X className="size-4 text-red-500" />
         </Button>
-      </DialogTrigger>
+      ) : (
+        <DialogTrigger className="flex" asChild>
+          <Button variant="link" size="icon">
+            <Trash className="size-4 text-red-500" />
+          </Button>
+        </DialogTrigger>
+      )}
       <DialogContent>
         <DialogHeader>
-          {checkedLength < todo.length ? (
-            <DialogTitle>Delete {checkedLength} checked data, Are you sure?</DialogTitle>
-          ) : (
-            <DialogTitle>Delete all data, Are you sure?</DialogTitle>
-          )}
+          <DialogTitle>Delete {item.text}, Are you sure?</DialogTitle>
           <DialogDescription>This action cannot be undone</DialogDescription>
         </DialogHeader>
         <form onSubmit={onSubmit} className="flex gap-1 justify-center sm:justify-start">

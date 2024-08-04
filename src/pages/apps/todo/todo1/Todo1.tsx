@@ -96,16 +96,18 @@ export default function Todo1() {
   //   Edit Todo
   const editTodo = ({ e, item, newText }: EditParam) => {
     e.preventDefault();
+    setMsg("");
+    setErr("");
     const others = todo.filter((t) => t.id !== item.id);
     const match = todo.find((t) => t.id === item.id);
-    if (match) {
+    if (match && newText) {
       match.text = newText;
       match.updatedAt = new Date().toISOString();
       const result = [...others, match];
       setResult(result);
       setIsEdit(null);
       setMsg(`Edit ${item.text} success`);
-    }
+    } else setErr(`Input text reqired`);
   };
 
   //   Check All

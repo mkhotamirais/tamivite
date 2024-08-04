@@ -4,15 +4,17 @@ import { useState } from "react";
 import Todo1 from "./todo1/Todo1";
 import Todo2 from "./todo2/Todo2";
 import Todo3 from "./todo3/Todo3";
+import Todo4 from "./todo4/Todo4";
 
 const todoMenu = [
   { title: "Todo1", content: <Todo1 /> },
   { title: "Todo2", content: <Todo2 /> },
   { title: "Todo3", content: <Todo3 /> },
+  { title: "Todo4", content: <Todo4 /> },
 ];
 
 export default function Todo() {
-  const [activeTodo, setActiveTodo] = useState("Todo3");
+  const [activeTodo, setActiveTodo] = useState("Todo4");
   return (
     <div className="bg-gray-50">
       <Container>

@@ -1,28 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Check, Edit } from "lucide-react";
-import Todo2DelDialog from "./Todo2DelDialog";
-import { InitialTodo, Todo2Context } from "./Todo2Provider";
-import React, { useContext, useState } from "react";
-import { enqueueSnackbar } from "notistack";
+import React, { useState } from "react";
+import { InitialTodo, useTodo } from "@/hooks/useTodo";
+import Todo4DelDialog from "./Todo4DelDialog";
+import { toast } from "sonner";
 
-export default function Todo2List({ item }: { item: InitialTodo }) {
-  const context = useContext(Todo2Context);
-  if (!context) throw Error("error context");
-  const { dispatch, isEdit, setIsEdit } = context;
-
+export default function Todo3List({ item }: { item: InitialTodo }) {
   const [newText, setNewText] = useState(item.text);
-
-  const onChangeCheck = (id: string) => {
-    dispatch({ type: "TOGGLE_TODO", payload: id });
-  };
+  const { isEdit, setIsEdit, toggleCheck, editTodo } = useTodo();
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     if (newText) {
-      dispatch({ type: "UPDATE_TODO", payload: { id: item.id, text: newText, updatedAt: new Date().toISOString() } });
-      setIsEdit(null);
-      enqueueSnackbar(`Update ${item.text} to ${newText} success`, { variant: "success" });
-    } else enqueueSnackbar(`Input text required`, { variant: "error" });
+      editTodo(item.id, newText);
+      toast.success(`Update ${item.text} to ${newText} success`);
+    } else toast.error(`Input text required`);
   };
 
   return (
@@ -33,7 +25,7 @@ export default function Todo2List({ item }: { item: InitialTodo }) {
           title="input todo1"
           type="checkbox"
           checked={item.checked}
-          onChange={() => onChangeCheck(item.id)}
+          onChange={() => toggleCheck(item.id)}
         />
         {isEdit === item.id ? (
           <form onSubmit={onSubmit} className="w-full">
@@ -67,7 +59,7 @@ export default function Todo2List({ item }: { item: InitialTodo }) {
             <Edit className="size-4 text-green-500" />
           </Button>
         )}
-        <Todo2DelDialog item={item} setNewText={setNewText} />
+        <Todo4DelDialog item={item} setNewText={setNewText} />
       </div>
     </div>
   );

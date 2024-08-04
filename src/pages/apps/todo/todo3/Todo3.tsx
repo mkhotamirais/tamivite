@@ -9,6 +9,9 @@ import Todo3DelAllDialog from "./Todo3DellAllDialog";
 
 export default function Todo3() {
   const { todo, checkedAll } = useSelector((state: RootState) => state.todo);
+  const sortedTodo = [...todo].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  // .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+  // .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
 
   const checkedLength = todo.filter((t) => t.checked).length;
   useEffect(() => {
@@ -44,7 +47,7 @@ export default function Todo3() {
             {checkedLength > 0 && <Todo3DelAllDialog checkedLength={checkedLength} />}
           </div>
           <div className="flex flex-col gap-1 my-2">
-            {todo.map((item) => (
+            {sortedTodo.map((item) => (
               <Todo3List key={item.id} item={item} />
             ))}
           </div>

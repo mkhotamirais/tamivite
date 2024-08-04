@@ -14,9 +14,11 @@ export default function Todo3List({ item }: { item: InitialTodo }) {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    dispatch(updateTodo({ id: item.id, text: newText }));
-    toast.success(`Update ${item.text} to ${newText} success`);
-    dispatch(setIsEdit({ id: null }));
+    if (newText) {
+      dispatch(updateTodo({ id: item.id, text: newText }));
+      toast.success(`Update ${item.text} to ${newText} success`);
+      dispatch(setIsEdit({ id: null }));
+    } else toast.error(`Input text required`);
   };
 
   return (

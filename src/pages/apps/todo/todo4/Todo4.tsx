@@ -1,28 +1,29 @@
-import { useContext, useEffect } from "react";
-import Todo2Add from "./Todo2Add";
-import Todo2List from "./Todo2List";
-import { Todo2Context } from "./Todo2Provider";
-import Todo2DelAllDialog from "./Todo2DelAllDialog";
+import { Toaster } from "sonner";
+import Todo4Add from "./Todo4Add";
+import Todo4List from "./Todo4List";
+import { useTodo } from "@/hooks/useTodo";
+import { useEffect, useState } from "react";
+import Todo4DelAllDialog from "./Todo4DelAllDialog";
 
-export default function Todo2Home() {
-  const context = useContext(Todo2Context);
-  if (!context) throw Error("Data must be used");
-  const { todo, checkedAll, setCheckedAll, dispatch } = context;
+export default function Todo4() {
+  const { todo, checkAllTodo } = useTodo();
+  const [checkedAll, setCheckedAll] = useState(false);
 
   const checkedLength = todo.filter((t) => t.checked).length;
   useEffect(() => {
     checkedLength !== todo.length ? setCheckedAll(false) : setCheckedAll(true);
-  }, [checkedLength, setCheckedAll, todo]);
+  }, [checkedLength, todo]);
 
   const onCheckAll = () => {
     setCheckedAll((prev) => !prev);
-    dispatch({ type: "CHECK_ALL", payload: checkedAll });
+    checkAllTodo(checkedAll);
   };
 
   return (
     <div>
-      <h2 className="text-xl font-bold my-2">Todo2</h2>
-      <Todo2Add />
+      <Toaster richColors position="bottom-left" />
+      <h2 className="text-xl font-bold my-2">Todo4</h2>
+      <Todo4Add />
       {todo.length > 0 ? (
         <>
           <div className="flex justify-between items-center border px-2 rounded-lg py-1 my-2">
@@ -37,14 +38,12 @@ export default function Todo2Home() {
               />
               <label htmlFor="checkAllData font-semibold">Check All</label>
             </div>
-            {checkedLength > 0 && <Todo2DelAllDialog checkedLength={checkedLength} />}
+            {checkedLength > 0 && <Todo4DelAllDialog checkedLength={checkedLength} />}
           </div>
           <div className="flex flex-col gap-1 my-2">
-            {todo
-              .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
-              .map((item) => (
-                <Todo2List key={item.id} item={item} />
-              ))}
+            {todo.map((item) => (
+              <Todo4List key={item.id} item={item} />
+            ))}
           </div>
         </>
       ) : (

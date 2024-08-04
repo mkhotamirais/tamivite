@@ -8,19 +8,16 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { deleteChecked } from "@/redux/features/todoSlice";
-import { RootState } from "@/redux/store";
+import { useTodo } from "@/hooks/useTodo";
 import React from "react";
-import toast from "react-hot-toast";
-import { useDispatch, useSelector } from "react-redux";
+import { toast } from "sonner";
 
-export default function Todo3DelAllDialog({ checkedLength }: { checkedLength: number }) {
-  const { todo } = useSelector((state: RootState) => state.todo);
-  const dispatch = useDispatch();
+export default function Todo4DelAllDialog({ checkedLength }: { checkedLength: number }) {
+  const { todo, delChecked } = useTodo();
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(deleteChecked());
+    delChecked();
     if (checkedLength === todo.length) {
       toast.success(`Delete all data success, total deleted ${todo.length} data`);
     } else toast.success(`Delete ${checkedLength} data success`);

@@ -37,10 +37,17 @@ const setLocal = (state: { todo: InitialTodo[] }) => {
 //   },
 // ];
 
+let todo: InitialTodo[];
+const storage = localStorage.getItem("todo3");
+if (storage) {
+  todo = JSON.parse(storage);
+} else todo = [];
+
 const todoSlice = createSlice({
   name: "todo3",
   initialState: {
-    todo: JSON.parse(localStorage.getItem("todo3") || "[]") as InitialTodo[],
+    todo,
+    // todo: JSON.parse(localStorage.getItem("todo3") || "[]") as InitialTodo[],
     isEdit: null,
     checkedAll: false,
   },
