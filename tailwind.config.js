@@ -1,12 +1,10 @@
 /** @type {import('tailwindcss').Config} */
+
+import { fontFamily } from "./tailwindExtend";
+
 module.exports = {
   darkMode: ["class"],
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-  ],
+  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
     container: {
@@ -17,6 +15,7 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily,
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -74,4 +73,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

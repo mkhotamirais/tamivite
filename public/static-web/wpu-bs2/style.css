@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Viga&display=swap");
+
+.navbar-brand {
+    font-family: "Viga", sans-serif;
+    font-size: 32px;
+}
+
+.navbar-brand, .nav-link, #jumbotron h1, .btn {
+    text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+}
+
+#jumbotron {
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5)), url("img/jumbotron-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 520px;
+}
+
+#jumbotron h1 {
+    display: inline-block;
+    margin-top: 160px;
+    font-size: 36px;
+}
+
+#info-panel {
+    margin-top: -80px;
+}
+
+#info-panel img {
+    width: 90px;
+    margin-right: 1rem;
+}
+
+.workingspace {
+    margin-top: 120px;
+    text-align: center;
+}
+
+.testimonial {
+    margin-top: 100px;
+}
+
+.testimonial img {
+    min-width: 25px;
+    max-width: 50px;
+}
+
+
+/* DESKTOP VERSION */
+@media (min-width: 992px) {
+    .nav-item {
+        position: relative;
+        transition: 2s;
+    }
+
+    .nav-link {
+        text-transform: uppercase;
+    }
+
+    .nav-item:not(:last-child)::after {
+        content: '';
+        background-color: #0b63dc;
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        border-radius: 3px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: .3s;
+    }
+
+    .nav-item:hover::after {
+        opacity: 1;
+    }
+
+    #jumbotron {
+        margin-top: -75px;
+        height: 600px;
+    }
+
+    #jumbotron h1 {
+        display: inline-block;
+        margin-top: 160px;
+        font-size: 62px;
+    }
+
+    .workingspace {
+        text-align: left;
+    }
+}

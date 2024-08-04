@@ -27,6 +27,7 @@ const menu = [
       { href: "/typescript-1", label: "Typescript 1" },
       { href: "/typescript-2", label: "Typescript 2" },
       { href: "/typescript-3", label: "Typescript 3" },
+      { href: "/google-font-pairing", label: "Google Font Pairing" },
     ],
   },
   {
@@ -62,6 +63,7 @@ const menu = [
     links: [
       { href: "/html-accordion", label: "Accordion" },
       { href: "/html-carousel", label: "Carousel" },
+      { href: "/html-static-web", label: "Static Web" },
     ],
   },
   {

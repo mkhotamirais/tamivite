@@ -45,6 +45,8 @@ import UseRef from "./pages/react/UseRef.tsx";
 import Typescript1 from "./pages/basic/Typescript1.tsx";
 import Typescript2 from "./pages/basic/Typescript2.tsx";
 import Typescript3 from "./pages/basic/Typescript3.tsx";
+import HtmlStaticWeb from "./pages/html/HtmlStaticWeb.tsx";
+import GoogleFontPairing from "./pages/basic/GoogleFontPairing.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -60,6 +62,7 @@ const router = createBrowserRouter(
       <Route path="html-accordion" element={<HtmlAccordion />} />
       <Route path="html-carousel" element={<HtmlCarousel />} />
       <Route path="html-accordion" element={<HtmlAccordion />} />
+      <Route path="html-static-web" element={<HtmlStaticWeb />} />
       {/* basic */}
       <Route path="sticky" element={<Sticky />} />
       <Route path="flip-text" element={<FlipText />} />
@@ -70,6 +73,7 @@ const router = createBrowserRouter(
       <Route path="typescript-1" element={<Typescript1 />} />
       <Route path="typescript-2" element={<Typescript2 />} />
       <Route path="typescript-3" element={<Typescript3 />} />
+      <Route path="google-font-pairing" element={<GoogleFontPairing />} />
       {/* components */}
       <Route path="carousel" element={<Carousel />} />
       <Route path="accordion-1" element={<Accordion1 />} />

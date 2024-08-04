@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task3-jsbasic</title>
+  </head>
+  <body>
+    <h2>Task3 js basic</h2>
+    <!-- task1 -->
+    <button type="button" id="task1">Task1: control flow (menentukan nilai)</button>
+    <script>
+      document.getElementById("task1").addEventListener("click", () => {
+        const angka = prompt("silahkan mauskan angka 1-100!");
+        if (parseInt(angka) <= 20) alert(`Anda memasukan angka ${angka} nilai anda E`);
+        else if (parseInt(angka) <= 40)
+          alert(`Anda memasukan angka $
+        {angka} nilai anda D`);
+        else if (parseInt(angka) <= 60) alert(`Anda memasukan angka ${angka} nilai anda C`);
+        else if (parseInt(angka) <= 80) alert(`Anda memasukan angka ${angka} nilai anda B`);
+        else if (parseInt(angka) <= 100) alert(`Anda memasukan angka ${angka} nilai anda A`);
+        else if (parseInt(angka) > 100) alert(`Silahkan masukan angkan 1-100 saja`);
+        else alert("Anda tidak memasukan angka");
+      });
+    </script>
+    <br />
+    <br />
+
+    <!-- task2 -->
+    <button type="button" id="task2">Task2: function (daftar nama)</button>
+    <script>
+      document.getElementById("task2").addEventListener("click", () => {
+        let pendaftar = [];
+
+        pendaftaran();
+        function pendaftaran() {
+          daftar();
+          function daftar() {
+            const nama = prompt("masukan nama kamu untuk mendaftar!");
+            if (nama) {
+              if (pendaftar.includes(nama)) alert("sudah terdaftar, gunakan nama lain");
+              else {
+                pendaftar.push(nama);
+                alert(`${nama} berhasil terdaftar`);
+                daftar();
+              }
+            } else {
+              if (pendaftar.length < 2) {
+                alert("belum ada yang mendaftar");
+                if (confirm(`apakah ingin menambah pendaftar?`)) daftar();
+                else return;
+              } else alert(`Total pendaftar ${pendaftar.length} berikut nama namanya ${pendaftar.join(", ")}`);
+            }
+          }
+          alert("terima kasih atas partisipasinya");
+        }
+      });
+    </script>
+    <br />
+    <br />
+
+    <!-- task3 -->
+    <button type="button" id="task3">Task3: function (tebak angka)</button>
+    <script>
+      document.getElementById("task3").addEventListener("click", () => {
+        alert(
+          `Selamat datang di permainan tebak angka
+        Aturan Main
+        1. Dimainkan oleh 2 peserta.
+        2. Dimainkan sebanyak 5 ronde.
+        3. Masing masing peserta menebak angka antara 1-5.
+        3. Pemain yang tebakan benarnya paling banyak adalah pemenangnya.
+        SELAMAT BERMAIN`
+        );
+
+        let poin1 = 0;
+        let poin2 = 0;
+        let totalRonde = 5;
+        let jawaban;
+
+        main();
+        function main() {
+          for (let i = 1; i <= totalRonde; i++) {
+            jawaban = Math.ceil(Math.random() * 5);
+            alert(`Ronde ${i}`);
+            let tebakan1 = prompt(`Peserta1: tebak angka 1-3!`);
+            const hasilJawaban1 = tebakan1 != jawaban ? "jawaban salah" : "jawaban benar";
+            alert(hasilJawaban1);
+            let tebakan2 = prompt(`Peserta2: tebak angka 1-3!`);
+            const hasilJawaban2 = tebakan2 != jawaban ? "jawaban salah" : "jawaban benar";
+            alert(hasilJawaban2);
+            if (tebakan1 == jawaban) poin1 += 1;
+            if (tebakan2 == jawaban) poin2 += 1;
+
+            const hasilSelemtara =
+              poin1 > poin2 ? "pemain1 memimpin" : poin2 > poin1 ? "pemain 2 memimpin" : "skor sama, hasil masih seimbang";
+            const hasil =
+              poin1 > poin2 ? "pemain1 pemenangnya" : poin2 > poin1 ? "pemain 2 pemenangnya" : "skor sama, hasil seri";
+            if (i < totalRonde) {
+              alert(`skor sementara:
+              pemain1 tebak ${tebakan1} pemain2 tebak ${tebakan2}, tebakan benarnya ${jawaban}
+              pemain1: ${poin1} poin.
+              pemain2: ${poin2} poin.
+              ${hasilSelemtara}
+              `);
+            } else {
+              alert(`skor akhir:
+              pemain1 tebak ${tebakan1} pemain2 tebak ${tebakan2}, tebakan benarnya ${jawaban}
+              pemain1: ${poin1} poin.
+              pemain2: ${poin2} poin.
+              ${hasil}
+              `);
+            }
+          }
+        }
+        alert(`permainan selesai`);
+      });
+    </script>
+  </body>
+</html>
