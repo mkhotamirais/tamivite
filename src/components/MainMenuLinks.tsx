@@ -1,6 +1,7 @@
 import { AppWindow, Code, Component, Database, House, Presentation } from "lucide-react";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { SiHtml5, SiReact, SiShadcnui } from "react-icons/si";
+import { TbApi } from "react-icons/tb";
 import {
   Command,
   CommandEmpty,
@@ -46,6 +47,14 @@ const menu = [
     links: [
       { href: "/mysql", label: "Mysql" },
       { href: "/mongodb", label: "Mongodb" },
+    ],
+  },
+  {
+    heading: "Public Api",
+    icon: TbApi,
+    links: [
+      { href: "/jsonplaceholder", label: "Jsonplaceholder" },
+      { href: "/omdbapi", label: "Omdbapi" },
     ],
   },
   {

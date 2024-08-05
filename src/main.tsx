@@ -6,7 +6,6 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import { Provider } from "react-redux";
 import { store } from "./redux/store.ts";
 import Home from "./pages/Home.tsx";
-import Jp from "./pages/publicapi/Jp.tsx";
 import Teori from "./pages/Teori.tsx";
 import AccordionShad from "./pages/shadcnui/AccordionShad.tsx";
 import ProgressBar1 from "./pages/framer/ProgressBar1.tsx";
@@ -58,6 +57,14 @@ import MysV1UsersAdd from "./pages/nodejs/api-mysql-v1/MysV1UsersAdd.tsx";
 import MysV1UsersEdit from "./pages/nodejs/api-mysql-v1/MysV1UsersEdit.tsx";
 import MongoLayout from "./pages/databases/mongodb/MongoLayout.tsx";
 import MongoTheory from "./pages/databases/mongodb/MongoTheory.tsx";
+import JpLayout from "./pages/publicapi/jsonplaceholder/JpLayout.tsx";
+import OmdbLayout from "./pages/publicapi/omdbapi/OmdbLayout.tsx";
+import Omdb from "./pages/publicapi/omdbapi/Omdb.tsx";
+import Jp from "./pages/publicapi/jsonplaceholder/Jp.tsx";
+import JpUser from "./pages/publicapi/jsonplaceholder/JpUser.tsx";
+import JpUserSingle from "./pages/publicapi/jsonplaceholder/JpUserSingle.tsx";
+import JpPost from "./pages/publicapi/jsonplaceholder/JpPost.tsx";
+import JpPostSingle from "./pages/publicapi/jsonplaceholder/JpPostSingle.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -106,7 +113,16 @@ const router = createBrowserRouter(
         <Route path="edit/:id" element={<MysV1UsersEdit />} />
       </Route>
       {/* public api */}
-      <Route path="jsonplaceholder" element={<Jp />} />
+      <Route path="jsonplaceholder" element={<JpLayout />}>
+        <Route index element={<Jp />} />
+        <Route path="users" element={<JpUser />} />
+        <Route path="users/:id" element={<JpUserSingle />} />
+        <Route path="posts" element={<JpPost />} />
+        <Route path="posts/:id" element={<JpPostSingle />} />
+      </Route>
+      <Route path="omdbapi" element={<OmdbLayout />}>
+        <Route index element={<Omdb />} />
+      </Route>
       {/* framer */}
       <Route path="progress-bar-1" element={<ProgressBar1 />} />
       <Route path="bulb-1" element={<Bulb1 />} />

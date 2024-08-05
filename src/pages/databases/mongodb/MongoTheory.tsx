@@ -66,7 +66,7 @@ export default function MongoTheory() {
         <div>CRUD Mongodb / Mongodb Commands</div>
         <ul className="list-inside list-disc">
           <li>Dimulai dengan membuka mongodb di terminal</li>
-          <pre>{`
+          <pre className="text-sm overflow-x-scroll">{`
 mongosh                           : test> (artinya kita memulai dari database bawaan bernama 'test')
 test> show dbs / show databases   : menampilkan semua db
 test> db                          : menampilkan db saat ini
@@ -125,7 +125,7 @@ authorization: enabled`}</pre>
           </li>
         </ul>
         <div>Ngga tau dari mana</div>
-        <pre>{`
+        <pre className="text-sm overflow-x-scroll">{`
 db.grantRolesToUser("root", [
 { role: "readWriteAnyDatabase", db: "admin" },])
 
