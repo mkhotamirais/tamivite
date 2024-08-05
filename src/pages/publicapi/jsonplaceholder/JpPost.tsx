@@ -42,7 +42,7 @@ function useJpPostPaginasi(posts: Post[]) {
   const limit = 10;
   const totalPage = Math.ceil(totalData / limit);
 
-  const [pageKini, setPageKini] = useState(2);
+  const [pageKini, setPageKini] = useState(1);
 
   const indexAkhir = pageKini * limit;
   const indexAwal = indexAkhir - limit;

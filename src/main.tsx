@@ -58,7 +58,6 @@ import MysV1UsersEdit from "./pages/nodejs/api-mysql-v1/MysV1UsersEdit.tsx";
 import MongoLayout from "./pages/databases/mongodb/MongoLayout.tsx";
 import MongoTheory from "./pages/databases/mongodb/MongoTheory.tsx";
 import JpLayout from "./pages/publicapi/jsonplaceholder/JpLayout.tsx";
-import OmdbLayout from "./pages/publicapi/omdbapi/OmdbLayout.tsx";
 import Omdb from "./pages/publicapi/omdbapi/Omdb.tsx";
 import Jp from "./pages/publicapi/jsonplaceholder/Jp.tsx";
 import JpUser from "./pages/publicapi/jsonplaceholder/JpUser.tsx";
@@ -120,9 +119,7 @@ const router = createBrowserRouter(
         <Route path="posts" element={<JpPost />} />
         <Route path="posts/:id" element={<JpPostSingle />} />
       </Route>
-      <Route path="omdbapi" element={<OmdbLayout />}>
-        <Route index element={<Omdb />} />
-      </Route>
+      <Route path="omdbapi" element={<Omdb />} />
       {/* framer */}
       <Route path="progress-bar-1" element={<ProgressBar1 />} />
       <Route path="bulb-1" element={<Bulb1 />} />
