@@ -47,6 +47,17 @@ import Typescript2 from "./pages/basic/Typescript2.tsx";
 import Typescript3 from "./pages/basic/Typescript3.tsx";
 import HtmlStaticWeb from "./pages/html/HtmlStaticWeb.tsx";
 import GoogleFontPairing from "./pages/basic/GoogleFontPairing.tsx";
+import MysqlLayout from "./pages/databases/mysql/MysqlLayout.tsx";
+import MysTheory from "./pages/databases/mysql/MysTheory.tsx";
+import MysTables from "./pages/databases/mysql/MysTables.tsx";
+import Express from "./pages/nodejs/Express.tsx";
+import MysV1Layout from "./pages/nodejs/api-mysql-v1/MysV1Layout.tsx";
+import MysV1Home from "./pages/nodejs/api-mysql-v1/MysV1Home.tsx";
+import MysV1Users from "./pages/nodejs/api-mysql-v1/MysV1Users.tsx";
+import MysV1UsersAdd from "./pages/nodejs/api-mysql-v1/MysV1UsersAdd.tsx";
+import MysV1UsersEdit from "./pages/nodejs/api-mysql-v1/MysV1UsersEdit.tsx";
+import MongoLayout from "./pages/databases/mongodb/MongoLayout.tsx";
+import MongoTheory from "./pages/databases/mongodb/MongoTheory.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -78,6 +89,22 @@ const router = createBrowserRouter(
       <Route path="carousel" element={<Carousel />} />
       <Route path="accordion-1" element={<Accordion1 />} />
       <Route path="accordion-2" element={<Accordion2 />} />
+      {/* database */}
+      <Route path="mysql" element={<MysqlLayout />}>
+        <Route index element={<MysTheory />} />
+        <Route path="tables" element={<MysTables />} />
+      </Route>
+      <Route path="mongodb" element={<MongoLayout />}>
+        <Route index element={<MongoTheory />} />
+      </Route>
+      {/* nodejs */}
+      <Route path="express" element={<Express />} />
+      <Route path="api-mysql-v1" element={<MysV1Layout />}>
+        <Route index element={<MysV1Home />} />
+        <Route path="users" element={<MysV1Users />} />
+        <Route path="add" element={<MysV1UsersAdd />} />
+        <Route path="edit/:id" element={<MysV1UsersEdit />} />
+      </Route>
       {/* public api */}
       <Route path="jsonplaceholder" element={<Jp />} />
       {/* framer */}

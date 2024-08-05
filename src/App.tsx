@@ -1,6 +1,7 @@
 import { Outlet, ScrollRestoration } from "react-router-dom";
 import { useMm } from "./hooks/useMm";
 import { MainMenu } from "./components/MainMenu";
+import { Toaster } from "react-hot-toast";
 
 export default function App() {
   const { mm, closeMm } = useMm();
@@ -14,6 +15,7 @@ export default function App() {
       </main>
       <MainMenu />
       <ScrollRestoration />
+      <Toaster />
     </>
   );
 }

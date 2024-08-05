@@ -1,4 +1,4 @@
-import { AppWindow, Code, Component, House, Presentation } from "lucide-react";
+import { AppWindow, Code, Component, Database, House, Presentation } from "lucide-react";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { SiHtml5, SiReact, SiShadcnui } from "react-icons/si";
 import {
@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/command";
 import { Link } from "react-router-dom";
 import { useMm } from "@/hooks/useMm";
+import { FaNodeJs } from "react-icons/fa6";
 
 const menu = [
   {
@@ -37,6 +38,22 @@ const menu = [
       { href: "/carousel", label: "Carousel" },
       { href: "/accordion-1", label: "Accordion 1" },
       { href: "/accordion-2", label: "Accordion 2" },
+    ],
+  },
+  {
+    heading: "Databases",
+    icon: Database,
+    links: [
+      { href: "/mysql", label: "Mysql" },
+      { href: "/mongodb", label: "Mongodb" },
+    ],
+  },
+  {
+    heading: "Nodejs",
+    icon: FaNodeJs,
+    links: [
+      { href: "/express", label: "Express" },
+      { href: "/api-mysql-v1", label: "Api Mysql V1" },
     ],
   },
   {
