@@ -1,4 +1,4 @@
-import { AppWindow, Code, Component, Database, House, Presentation } from "lucide-react";
+import { AppWindow, Code, Component, Database, Home, House, Presentation } from "lucide-react";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { SiHtml5, SiReact, SiShadcnui } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
@@ -16,6 +16,7 @@ import { useMm } from "@/hooks/useMm";
 import { FaNodeJs } from "react-icons/fa6";
 
 const menu = [
+  { heading: "Home", icon: Home, links: [{ href: "/projects", label: "Projects" }] },
   {
     heading: "Basic",
     icon: Code,
@@ -130,7 +131,7 @@ export function MainMenuLinks() {
   const { closeMm } = useMm();
   return (
     <Command>
-      <div className="flex items-center justify-between p-3">
+      <div className="flex items-center justify-between p-3 shadow">
         <Link to="/" className="flex items-center gap-2">
           <House className="size-5" /> <div className="font-bold">Tamivite</div>
         </Link>

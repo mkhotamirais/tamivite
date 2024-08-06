@@ -6,7 +6,6 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import { Provider } from "react-redux";
 import { store } from "./redux/store.ts";
 import Home from "./pages/Home.tsx";
-import Teori from "./pages/Teori.tsx";
 import AccordionShad from "./pages/shadcnui/AccordionShad.tsx";
 import ProgressBar1 from "./pages/framer/ProgressBar1.tsx";
 import Bulb1 from "./pages/framer/Bulb1.tsx";
@@ -64,12 +63,14 @@ import JpUser from "./pages/publicapi/jsonplaceholder/JpUser.tsx";
 import JpUserSingle from "./pages/publicapi/jsonplaceholder/JpUserSingle.tsx";
 import JpPost from "./pages/publicapi/jsonplaceholder/JpPost.tsx";
 import JpPostSingle from "./pages/publicapi/jsonplaceholder/JpPostSingle.tsx";
+import Projects from "./pages/home/Projects.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Home />} />
-      <Route path="teori" element={<Teori />} />
+      {/* home */}
+      <Route path="projects" element={<Projects />} />
       {/* apps */}
       <Route path="clock" element={<Clock />} />
       <Route path="stopwatch" element={<Stopwatch />} />
