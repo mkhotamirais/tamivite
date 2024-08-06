@@ -16,7 +16,14 @@ import { useMm } from "@/hooks/useMm";
 import { FaNodeJs } from "react-icons/fa6";
 
 const menu = [
-  { heading: "Home", icon: Home, links: [{ href: "/projects", label: "Projects" }] },
+  {
+    heading: "Home",
+    icon: Home,
+    links: [
+      { href: "/projects", label: "Projects" },
+      { href: "/portofolio-legacy", label: "Portofolio Legacy" },
+    ],
+  },
   {
     heading: "Basic",
     icon: Code,
@@ -56,6 +63,8 @@ const menu = [
     links: [
       { href: "/jsonplaceholder", label: "Jsonplaceholder" },
       { href: "/omdbapi", label: "Omdbapi" },
+      { href: "/fakestoreapi", label: "Fakestoreapi" },
+      { href: "/newsapi", label: "Newsapi" },
     ],
   },
   {

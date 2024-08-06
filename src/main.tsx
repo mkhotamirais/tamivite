@@ -64,6 +64,9 @@ import JpUserSingle from "./pages/publicapi/jsonplaceholder/JpUserSingle.tsx";
 import JpPost from "./pages/publicapi/jsonplaceholder/JpPost.tsx";
 import JpPostSingle from "./pages/publicapi/jsonplaceholder/JpPostSingle.tsx";
 import Projects from "./pages/home/Projects.tsx";
+import Portofolio from "./pages/home/portofolio/Portofolio.tsx";
+import Fksapi from "./pages/publicapi/fakestoreapi/Fksapi.tsx";
+import NewsApi from "./pages/publicapi/newsapi/Newsapi.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -71,6 +74,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       {/* home */}
       <Route path="projects" element={<Projects />} />
+      <Route path="portofolio-legacy" element={<Portofolio />} />
       {/* apps */}
       <Route path="clock" element={<Clock />} />
       <Route path="stopwatch" element={<Stopwatch />} />
@@ -121,6 +125,8 @@ const router = createBrowserRouter(
         <Route path="posts/:id" element={<JpPostSingle />} />
       </Route>
       <Route path="omdbapi" element={<Omdb />} />
+      <Route path="fakestoreapi" element={<Fksapi />} />
+      <Route path="newsapi" element={<NewsApi />} />
       {/* framer */}
       <Route path="progress-bar-1" element={<ProgressBar1 />} />
       <Route path="bulb-1" element={<Bulb1 />} />

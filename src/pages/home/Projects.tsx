@@ -1,6 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const projectsMenu = [
@@ -74,17 +76,28 @@ const projectsMenu = [
 
 export default function Projects() {
   const { pathname } = useLocation();
+  const [cari, setCari] = useState("");
 
   const filteredProjectsMenu =
     pathname === "/projects"
-      ? projectsMenu.sort((a, b) => (a.isPrimary === b.isPrimary ? 0 : a.isPrimary ? -1 : 1))
+      ? projectsMenu
+          .filter((item) => item.title.toLowerCase().includes(cari.toLowerCase()))
+          .sort((a, b) => (a.isPrimary === b.isPrimary ? 0 : a.isPrimary ? -1 : 1))
       : projectsMenu
           .filter((item) => item.isPrimary)
           .sort((a, b) => (a.isPrimary === b.isPrimary ? 0 : a.isPrimary ? -1 : 1));
 
   return (
-    <div className="px-3 py-12 sm:px-12 lg:px-32 min-h-screen bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-100 to-cyan-500">
-      <h1 className="text-3xl font-bold text-center mb-12">My Projects</h1>
+    <div className="px-3 py-8 sm:px-12 lg:px-32 min-h-screen bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-100 to-cyan-500">
+      <h1 className="text-3xl font-bold text-center mb-6">My Projects</h1>
+      {pathname === "/projects" && (
+        <Input
+          value={cari}
+          onChange={(e) => setCari(e.target.value)}
+          placeholder="Search project.."
+          className="bg-cyan-100/15 mb-2"
+        />
+      )}
       <div className="mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1">
         {filteredProjectsMenu.map((item, i) => (
           <Card key={i} className="group relative bg-cyan-100 flex flex-col overflow-hidden">

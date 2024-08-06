@@ -14,6 +14,7 @@ export default function Todo3List({ item }: { item: InitialTodo }) {
     if (newText) {
       editTodo(item.id, newText);
       toast.success(`Update ${item.text} to ${newText} success`);
+      setIsEdit(null);
     } else toast.error(`Input text required`);
   };
 

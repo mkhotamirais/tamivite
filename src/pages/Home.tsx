@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div className="relative">
-      <div className="absolute flex gap-2 right-8 top-5">
+      <div className="absolute flex gap-2 right-3 top-3 sm:right-8 sm:top-5">
         <Button asChild size="icon" className="rounded-full" variant="secondary">
           <a title="linked account" href="https://www.linkedin.com/in/mkhotami-rais/">
             <FaLinkedin className="size-4" />

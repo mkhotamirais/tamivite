@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Todo4DelAllDialog from "./Todo4DelAllDialog";
 
 export default function Todo4() {
-  const { todo, checkAllTodo } = useTodo();
+  const { todo, checkAllTodo, isEdit } = useTodo();
   const [checkedAll, setCheckedAll] = useState(false);
 
   const checkedLength = todo.filter((t) => t.checked).length;
@@ -29,6 +29,7 @@ export default function Todo4() {
           <div className="flex justify-between items-center border px-2 rounded-lg py-1 my-2">
             <div>
               <input
+                disabled={isEdit !== null}
                 title="checkAll"
                 type="checkbox"
                 id="checkAllData"

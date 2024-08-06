@@ -6,7 +6,7 @@ import { toast } from "sonner";
 
 export default function Todo4Add() {
   const [text, setText] = useState("");
-  const { addTodo, setIsEdit } = useTodo();
+  const { addTodo, isEdit, setIsEdit } = useTodo();
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,8 +23,16 @@ export default function Todo4Add() {
   return (
     <div>
       <form onSubmit={onSubmit} className="flex gap-1">
-        <Input onFocus={onFocus} placeholder="add todo" value={text} onChange={(e) => setText(e.target.value)} />
-        <Button type="submit">Submit</Button>
+        <Input
+          disabled={isEdit !== null}
+          onFocus={onFocus}
+          placeholder="add todo"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+        <Button disabled={isEdit !== null} type="submit">
+          Submit
+        </Button>
       </form>
     </div>
   );

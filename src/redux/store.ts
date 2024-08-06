@@ -1,10 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import todoReducer, { InitialTodo } from "./features/todoSlice";
+import fksapiReducer, { getFakeProducts, InitialProduct, InitialSingleProduct } from "./features/fksapiSlice";
+import newsapiReducer, { getNews, NewsQuery, NewsValues } from "./features/newsapiSlice";
 
 export const store = configureStore({
   reducer: {
     todo: todoReducer,
+    fksapi: fksapiReducer,
+    newsapi: newsapiReducer,
   },
 });
 
@@ -16,27 +20,30 @@ export interface RootState {
   };
 }
 
-// import { configureStore } from "@reduxjs/toolkit";
-// import todoReducer from "./features/todoSlice";
-// import omdbapiReducer from "./features/omdbapiSlice";
-// import jpReducer, { getPosts, getUsers } from "./features/jpSlice";
-// import siskoReducer, { getSiskoProducts } from "./features/siskoSlice";
-// import newsapiReducer from "./features/newsapiSlice";
-// import fksapiReducer, { getFakeProducts } from "./features/fksapiSlice";
+export interface RootFksapi {
+  fksapi: {
+    products: InitialProduct[] | null;
+    singleProduct: InitialSingleProduct | null;
+    status: "idle" | "loading" | "failed" | "succeeded";
+    error: string | null | unknown;
+    singleStatus: "idle" | "loading" | "failed" | "succeeded";
+    singleError: string | null | unknown;
+  };
+}
 
-// export const store = configureStore({
-//   reducer: {
-//     todo: todoReducer,
-//     // public api
-//     omdbapi: omdbapiReducer,
-//     jp: jpReducer,
-//     fksapi: fksapiReducer,
-//     sisko: siskoReducer,
-//     newsapi: newsapiReducer,
-//   },
-// });
+export interface RootNews {
+  newsapi: {
+    status: "idle" | "loading" | "failed" | "succeeded";
+    news: NewsValues[] | null;
+    error: string | null | unknown;
+    top: string;
+    q: string;
+    query: NewsQuery;
+  };
+}
 
-// store.dispatch(getUsers());
-// store.dispatch(getPosts());
-// store.dispatch(getFakeProducts());
+export type AppDispatch = typeof store.dispatch;
+
+store.dispatch(getFakeProducts());
+store.dispatch(getNews({ top: "everything", queryObj: { q: "" } }));
 // store.dispatch(getSiskoProducts());
