@@ -22,9 +22,13 @@ export default function NewsApi() {
     if (data && data.length > 0) {
       const renderedData = data && data.map((item, i) => <NewsapiItems key={i} item={item} />);
       content = (
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1 lg:gap-2`}>
-          {renderedData}
-        </div>
+        <>
+          <div className="mb-2 flex justify-between items-center gap-4">
+            <NewsapiQ />
+            <NewsapiTop />
+          </div>
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 lg:gap-2`}>{renderedData}</div>;
+        </>
       );
     } else content = <div className="text-center italic mt-5">no data</div>;
   }
@@ -34,10 +38,6 @@ export default function NewsApi() {
       <Container>
         <div className="p-3">
           <h2 className="text-xl text-center font-bold mb-4">NewsApi</h2>
-          <div className="mb-2 flex justify-between items-center">
-            <NewsapiQ />
-            <NewsapiTop />
-          </div>
           {content}
         </div>
       </Container>

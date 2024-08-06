@@ -1,7 +1,7 @@
 import { setQ, setQuery, setTop } from "@/redux/features/newsapiSlice";
 import { RootNews } from "@/redux/store";
 import { ChangeEvent, FormEvent } from "react";
-import { FaSearchengin } from "react-icons/fa6";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function NewsapiQ() {
@@ -17,20 +17,20 @@ export default function NewsapiQ() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-1">
+    <form onSubmit={handleSubmit} className="flex">
       <input
         type="search"
         value={q}
         onChange={(e) => dispatch(setQ(e.target.value))}
         placeholder="Search here"
-        className="border rounded p-1 focus:outline-none bg-inherit"
+        className="border rounded p-1 focus:outline-none bg-inherit w-full"
       />
       <button
         title="button news"
         type="submit"
-        className="w-8 flex items-center justify-center bg-cyan-500 text-white hover:opacity-70 rounded"
+        className="w-12 flex items-center justify-center bg-cyan-500 text-white hover:opacity-70 rounded"
       >
-        <FaSearchengin />
+        <FaMagnifyingGlass />
       </button>
     </form>
   );
