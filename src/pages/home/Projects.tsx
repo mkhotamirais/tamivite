@@ -5,6 +5,14 @@ import { Link, useLocation } from "react-router-dom";
 
 const projectsMenu = [
   {
+    title: "Todo",
+    href: "/todo",
+    isPrimary: true,
+    description: `project ini menggunakan apa saja Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut quidem
+              repudiandae quo cupiditate nam est vel deleniti repellendus totam iste.`,
+    tools: ["react", "node", "lainnya"],
+  },
+  {
     title: "Omdbapi",
     href: "/omdbapi",
     isPrimary: true,
@@ -35,16 +43,23 @@ const projectsMenu = [
     tools: ["react", "node", "lainnya"],
   },
   {
-    title: "project5",
-    href: "",
+    title: "Clock",
+    href: "/clock",
     isPrimary: true,
     description: "halo semua",
     tools: ["react", "node", "lainnya"],
   },
   {
-    title: "project6",
-    href: "",
-    isPrimary: true,
+    title: "stopwatch",
+    href: "/stopwatch",
+    isPrimary: false,
+    description: "halo semua",
+    tools: ["react", "node", "lainnya"],
+  },
+  {
+    title: "Nurul Iman",
+    hrefEx: "/static-web/nuruliman/index.html",
+    isPrimary: false,
     description: "halo semua",
     tools: ["react", "node", "lainnya"],
   },
@@ -68,7 +83,7 @@ export default function Projects() {
           <Card key={i} className="group relative bg-cyan-100 flex flex-col overflow-hidden">
             <div className="translate-y-full group-hover:translate-y-0 transition absolute inset-0 top-3/4 z-10 flex items-center justify-center bg-black/20">
               <Button asChild variant="outline" className="rounded-full px-8" size={"sm"}>
-                <Link to={item.href}>Visit</Link>
+                {item.href ? <Link to={item.href}>Visit</Link> : <a href={item.hrefEx}>Visit</a>}
               </Button>
             </div>
             <CardHeader>

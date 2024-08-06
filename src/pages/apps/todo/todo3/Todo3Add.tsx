@@ -14,6 +14,7 @@ export default function Todo3Add() {
     if (text) {
       dispatch(addTodo({ text }));
       toast.success(`Add ${text} success`);
+      setText("");
     } else toast.error(`Add ${text} failed`);
   };
 

@@ -13,6 +13,7 @@ export default function Todo4Add() {
     if (text) {
       addTodo(text);
       toast.success(`Add ${text} success`);
+      setText("");
     } else toast.error(`Input text required`);
   };
 
