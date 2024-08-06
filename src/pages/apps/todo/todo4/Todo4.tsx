@@ -21,7 +21,7 @@ export default function Todo4() {
 
   return (
     <div>
-      <Toaster richColors position="bottom-left" />
+      <Toaster richColors position="top-center" />
       <h2 className="text-xl font-bold my-2">Todo4</h2>
       <Todo4Add />
       {todo.length > 0 ? (

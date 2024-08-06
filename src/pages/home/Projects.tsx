@@ -63,6 +63,13 @@ const projectsMenu = [
     description: "halo semua",
     tools: ["react", "node", "lainnya"],
   },
+  {
+    title: "Symbol Color",
+    hrefEx: "/symbol-color",
+    isPrimary: false,
+    description: "halo semua",
+    tools: ["react", "node", "lainnya"],
+  },
 ];
 
 export default function Projects() {

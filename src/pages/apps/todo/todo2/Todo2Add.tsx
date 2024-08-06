@@ -16,9 +16,16 @@ export default function Todo2Add() {
     const updatedAt = new Date().toISOString();
     if (text) {
       dispatch({ type: "ADD_TODO", payload: { id: uuidv4(), text, checked: false, createdAt, updatedAt } });
-      enqueueSnackbar(`Add ${text} success`, { variant: "success" });
+      enqueueSnackbar(`Add ${text} success`, {
+        variant: "success",
+        anchorOrigin: { vertical: "top", horizontal: "center" },
+      });
       setText("");
-    } else enqueueSnackbar(`Input required`, { variant: "error" });
+    } else
+      enqueueSnackbar(`Input required`, {
+        variant: "error",
+        anchorOrigin: { vertical: "top", horizontal: "center" },
+      });
   };
 
   const onFocus = () => {

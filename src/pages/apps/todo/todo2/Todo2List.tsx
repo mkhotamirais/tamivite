@@ -21,8 +21,15 @@ export default function Todo2List({ item }: { item: InitialTodo }) {
     if (newText) {
       dispatch({ type: "UPDATE_TODO", payload: { id: item.id, text: newText, updatedAt: new Date().toISOString() } });
       setIsEdit(null);
-      enqueueSnackbar(`Update ${item.text} to ${newText} success`, { variant: "success" });
-    } else enqueueSnackbar(`Input text required`, { variant: "error" });
+      enqueueSnackbar(`Update ${item.text} to ${newText} success`, {
+        variant: "success",
+        anchorOrigin: { vertical: "top", horizontal: "center" },
+      });
+    } else
+      enqueueSnackbar(`Input text required`, {
+        variant: "error",
+        anchorOrigin: { vertical: "top", horizontal: "center" },
+      });
   };
 
   return (
