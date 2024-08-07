@@ -65,6 +65,7 @@ const menu = [
       { href: "/omdbapi", label: "Omdbapi" },
       { href: "/fakestoreapi", label: "Fakestoreapi" },
       { href: "/newsapi", label: "Newsapi" },
+      { href: "/sisko", label: "Sistem Toko" },
     ],
   },
   {

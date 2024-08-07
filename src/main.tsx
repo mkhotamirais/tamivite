@@ -67,6 +67,12 @@ import Projects from "./pages/home/Projects.tsx";
 import Portofolio from "./pages/home/portofolio/Portofolio.tsx";
 import Fksapi from "./pages/publicapi/fakestoreapi/Fksapi.tsx";
 import NewsApi from "./pages/publicapi/newsapi/Newsapi.tsx";
+import SiskoLayout from "./pages/publicapi/sistem-toko/SiskoLayout.tsx";
+import Sisko from "./pages/publicapi/sistem-toko/Sisko.tsx";
+import SiskoSingle from "./pages/publicapi/sistem-toko/SiskoSingle.tsx";
+import SiskoCart from "./pages/publicapi/sistem-toko/SiskoCart.tsx";
+import SiskoCheckout from "./pages/publicapi/sistem-toko/SiskoCheckout.tsx";
+import SiskoInvoice from "./pages/publicapi/sistem-toko/SiskoInvoice.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -127,6 +133,13 @@ const router = createBrowserRouter(
       <Route path="omdbapi" element={<Omdb />} />
       <Route path="fakestoreapi" element={<Fksapi />} />
       <Route path="newsapi" element={<NewsApi />} />
+      <Route path="sisko" element={<SiskoLayout />}>
+        <Route index element={<Sisko />} />
+        <Route path="product/:id" element={<SiskoSingle />} />
+        <Route path="cart" element={<SiskoCart />} />
+        <Route path="checkout" element={<SiskoCheckout />} />
+        <Route path="invoice" element={<SiskoInvoice />} />
+      </Route>
       {/* framer */}
       <Route path="progress-bar-1" element={<ProgressBar1 />} />
       <Route path="bulb-1" element={<Bulb1 />} />
