@@ -20,8 +20,12 @@ export default function Todo2Home() {
   };
 
   return (
-    <div>
+    <div className="space-y-2">
       <h2 className="text-xl font-bold my-2">Todo2</h2>
+      <p>
+        The second todo list app uses the useState, useEffect, useContext, and useReducer hooks for data management and
+        state management, and the notifications are implemented using the Notistack library.
+      </p>
       <Todo2Add />
       {todo.length > 0 ? (
         <>

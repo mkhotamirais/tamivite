@@ -22,6 +22,7 @@ export default function HtmlStaticWeb() {
   return (
     <div className="bg-gray-50">
       <Container>
+        <h2 className="text-xl font-bold my-3 text-center">Static Web</h2>
         <div className="p-3 grid grid-cols-3 sm:grid-cols-4 gap-2">
           {htmlWebMenu.map((item, i) => (
             <a key={i} href={item.href}>

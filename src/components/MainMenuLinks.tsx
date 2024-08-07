@@ -145,7 +145,7 @@ export function MainMenuLinks() {
         <Link to="/" onClick={closeMm} className="flex items-center gap-2">
           <House className="size-5" /> <div className="font-bold">Tamivite</div>
         </Link>
-        <CommandInput placeholder="Search main menu.." />
+        <CommandInput className="w-28" placeholder="Search menu.." />
       </div>
       <CommandList className="h-[40vh]">
         <CommandEmpty>No results found.</CommandEmpty>

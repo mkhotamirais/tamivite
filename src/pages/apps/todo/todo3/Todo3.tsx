@@ -26,9 +26,13 @@ export default function Todo3() {
   };
 
   return (
-    <div>
+    <div className="space-y-2">
       <Toaster />
       <h2 className="text-xl font-bold my-2">Todo3</h2>
+      <p>
+        The third to-do list project uses the Redux library for state management, allowing for centralized data and
+        easier access to each state, and the notifications are implemented using the react-hot-toast library
+      </p>
       <Todo3Add />
       {todo.length > 0 ? (
         <>

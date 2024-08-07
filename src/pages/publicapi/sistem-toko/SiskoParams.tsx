@@ -29,7 +29,7 @@ export function SiskoSort() {
 
   return (
     <Select defaultValue={query?.sorting} onValueChange={onChange}>
-      <SelectTrigger className="w-auto">
+      <SelectTrigger>
         <SelectValue placeholder="Sorting" />
       </SelectTrigger>
       <SelectContent align="end">

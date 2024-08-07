@@ -128,9 +128,12 @@ export default function Todo1() {
   };
 
   return (
-    <div className="space-y-1">
+    <div className="space-y-2">
       <h2 className="text-xl font-bold my-2">Todo1</h2>
-      <p>Deskripsi todo1</p>
+      <p>
+        The first todo list app only uses the useState and useEffect hooks and relies solely on props for data
+        transmission between parent and child components, and the notifications are implemented manually.
+      </p>
       <Todo1Add text={text} setText={setText} addTodo={addTodo} setMsg={setMsg} setIsEdit={setIsEdit} />
       {msg && <div className="italic text-cyan-500 py-2">{msg}</div>}
       {err && <div className="italic text-red-500 py-2">{err}</div>}

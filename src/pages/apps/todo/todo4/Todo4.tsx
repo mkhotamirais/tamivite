@@ -20,9 +20,14 @@ export default function Todo4() {
   };
 
   return (
-    <div>
+    <div className="space-y-2">
       <Toaster richColors position="top-center" />
       <h2 className="text-xl font-bold my-2">Todo4</h2>
+      <p>
+        Todo 4 is implemented using the Zustand library for state management, ensuring efficient and scalable state
+        handling, while the Sonner library is utilized for delivering notifications, enhancing user interaction and
+        feedback within the application.
+      </p>
       <Todo4Add />
       {todo.length > 0 ? (
         <>
