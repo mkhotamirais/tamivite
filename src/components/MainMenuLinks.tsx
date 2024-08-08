@@ -1,6 +1,6 @@
-import { AppWindow, Code, Component, Database, Home, House, Presentation } from "lucide-react";
+import { AppWindow, Code, Component, Globe, Home, House } from "lucide-react";
 import { TbBrandFramerMotion } from "react-icons/tb";
-import { SiHtml5, SiReact, SiShadcnui } from "react-icons/si";
+import { SiReact } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 import {
   Command,
@@ -20,6 +20,7 @@ const menu = [
     heading: "Home",
     icon: Home,
     links: [
+      { href: "/home-menu", label: "Home" },
       { href: "/projects", label: "Projects" },
       { href: "/portofolio-legacy", label: "Portofolio Legacy" },
     ],
@@ -28,6 +29,7 @@ const menu = [
     heading: "Basic",
     icon: Code,
     links: [
+      { href: "/basic-menu", label: "Basic" },
       { href: "/sticky", label: "Sticky" },
       { href: "/flip-text", label: "Flip Text" },
       { href: "/paginasi", label: "Paginasi" },
@@ -44,23 +46,17 @@ const menu = [
     heading: "Components",
     icon: Component,
     links: [
+      { href: "/components-menu", label: "Components" },
       { href: "/carousel", label: "Carousel" },
       { href: "/accordion-1", label: "Accordion 1" },
       { href: "/accordion-2", label: "Accordion 2" },
     ],
   },
   {
-    heading: "Databases",
-    icon: Database,
-    links: [
-      { href: "/mysql", label: "Mysql" },
-      { href: "/mongodb", label: "Mongodb" },
-    ],
-  },
-  {
     heading: "Public Api",
     icon: TbApi,
     links: [
+      { href: "/publicapi-menu", label: "Public Api" },
       { href: "/jsonplaceholder", label: "Jsonplaceholder" },
       { href: "/omdbapi", label: "Omdbapi" },
       { href: "/fakestoreapi", label: "Fakestoreapi" },
@@ -72,14 +68,18 @@ const menu = [
     heading: "Nodejs",
     icon: FaNodeJs,
     links: [
+      { href: "/nodejs-menu", label: "NodeJs" },
       { href: "/express", label: "Express" },
       { href: "/api-mysql-v1", label: "Api Mysql V1" },
+      { href: "/mysql", label: "Mysql" },
+      { href: "/mongodb", label: "Mongodb" },
     ],
   },
   {
     heading: "Framer Motion",
     icon: TbBrandFramerMotion,
     links: [
+      { href: "/framer-menu", label: "Framer Motion" },
       { href: "/progress-bar-1", label: "Progress Bar 1" },
       { href: "/bulb-1", label: "Bulb 1" },
       { href: "/bulb-2", label: "Bulb 2" },
@@ -90,23 +90,10 @@ const menu = [
     ],
   },
   {
-    heading: "Shadc ui",
-    icon: SiShadcnui,
-    links: [{ href: "/shad-accordion", label: "Accordion" }],
-  },
-  {
-    heading: "HTML",
-    icon: SiHtml5,
-    links: [
-      { href: "/html-accordion", label: "Accordion" },
-      { href: "/html-carousel", label: "Carousel" },
-      { href: "/html-static-web", label: "Static Web" },
-    ],
-  },
-  {
     heading: "React",
     icon: SiReact,
     links: [
+      { href: "/react-menu", label: "React" },
       { href: "/use-state", label: "useState" },
       { href: "/use-effect", label: "useEffect" },
       { href: "/use-ref", label: "useRef" },
@@ -121,6 +108,7 @@ const menu = [
     heading: "Apps",
     icon: AppWindow,
     links: [
+      { href: "/apps-menu", label: "Apps" },
       { href: "/clock", label: "Clock" },
       { href: "/stopwatch", label: "Stopwatch" },
       { href: "/symbol-color", label: "Symbol Color" },
@@ -128,11 +116,15 @@ const menu = [
     ],
   },
   {
-    heading: "Landing",
-    icon: Presentation,
+    heading: "Web Design",
+    icon: Globe,
     links: [
+      { href: "webdesign-menu", label: "Web Design" },
       { href: "/landing-1", label: "Landing 1" },
       { href: "/landing-2", label: "Landing 2" },
+      { href: "/html-accordion", label: "Accordion" },
+      { href: "/html-carousel", label: "Carousel" },
+      { href: "/html-static-web", label: "Static Web" },
     ],
   },
 ];

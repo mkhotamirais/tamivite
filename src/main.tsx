@@ -6,7 +6,6 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import { Provider } from "react-redux";
 import { store } from "./redux/store.ts";
 import Home from "./pages/Home.tsx";
-import AccordionShad from "./pages/shadcnui/AccordionShad.tsx";
 import ProgressBar1 from "./pages/framer/ProgressBar1.tsx";
 import Bulb1 from "./pages/framer/Bulb1.tsx";
 import Bulb2 from "./pages/framer/Bulb2.tsx";
@@ -21,16 +20,12 @@ import Paginasi from "./pages/basic/Paginasi.tsx";
 import Carousel from "./pages/components/Carousel.tsx";
 import Accordion1 from "./pages/components/Accordion1.tsx";
 import Accordion2 from "./pages/components/Accordion2.tsx";
-import HtmlAccordion from "./pages/html/HtmlAccordion.tsx";
-import HtmlCarousel from "./pages/html/HtmlCarousel.tsx";
 import Canvas from "./pages/basic/Canvas.tsx";
 import Svg from "./pages/basic/Svg.tsx";
 import CssBackground from "./pages/basic/CssBackground.tsx";
 import Clock from "./pages/apps/Clock.tsx";
 import Stopwatch from "./pages/apps/Stopwatch.tsx";
 import SymbolColor from "./pages/apps/SymbolColor.tsx";
-import Landing1 from "./pages/landing/Landing1.tsx";
-import Landing2 from "./pages/landing/Landing2.tsx";
 import UseState from "./pages/react/UseState.tsx";
 import UseEffect from "./pages/react/UseEffect.tsx";
 import UseContext from "./pages/react/UseContext.tsx";
@@ -43,19 +38,13 @@ import UseRef from "./pages/react/UseRef.tsx";
 import Typescript1 from "./pages/basic/Typescript1.tsx";
 import Typescript2 from "./pages/basic/Typescript2.tsx";
 import Typescript3 from "./pages/basic/Typescript3.tsx";
-import HtmlStaticWeb from "./pages/html/HtmlStaticWeb.tsx";
 import GoogleFontPairing from "./pages/basic/GoogleFontPairing.tsx";
-import MysqlLayout from "./pages/databases/mysql/MysqlLayout.tsx";
-import MysTheory from "./pages/databases/mysql/MysTheory.tsx";
-import MysTables from "./pages/databases/mysql/MysTables.tsx";
 import Express from "./pages/nodejs/Express.tsx";
 import MysV1Layout from "./pages/nodejs/api-mysql-v1/MysV1Layout.tsx";
 import MysV1Home from "./pages/nodejs/api-mysql-v1/MysV1Home.tsx";
 import MysV1Users from "./pages/nodejs/api-mysql-v1/MysV1Users.tsx";
 import MysV1UsersAdd from "./pages/nodejs/api-mysql-v1/MysV1UsersAdd.tsx";
 import MysV1UsersEdit from "./pages/nodejs/api-mysql-v1/MysV1UsersEdit.tsx";
-import MongoLayout from "./pages/databases/mongodb/MongoLayout.tsx";
-import MongoTheory from "./pages/databases/mongodb/MongoTheory.tsx";
 import JpLayout from "./pages/publicapi/jsonplaceholder/JpLayout.tsx";
 import Omdb from "./pages/publicapi/omdbapi/Omdb.tsx";
 import Jp from "./pages/publicapi/jsonplaceholder/Jp.tsx";
@@ -73,25 +62,42 @@ import SiskoSingle from "./pages/publicapi/sistem-toko/SiskoSingle.tsx";
 import SiskoCart from "./pages/publicapi/sistem-toko/SiskoCart.tsx";
 import SiskoCheckout from "./pages/publicapi/sistem-toko/SiskoCheckout.tsx";
 import SiskoInvoice from "./pages/publicapi/sistem-toko/SiskoInvoice.tsx";
+import HomeMenu from "./pages/home/HomeMenu.tsx";
+import AppsMenu from "./pages/apps/AppsMenu.tsx";
+import BasicMenu from "./pages/basic/BasicMenu.tsx";
+import ComponentsMenu from "./pages/components/ComponentsMenu.tsx";
+import FramerMenu from "./pages/framer/FramerMenu.tsx";
+import ReactMenu from "./pages/react/ReactMenu.tsx";
+import WebdesignMenu from "./pages/webdesign/WebdesignMenu.tsx";
+import Landing1 from "./pages/webdesign/Landing1.tsx";
+import Landing2 from "./pages/webdesign/Landing2.tsx";
+import PublicapiMenu from "./pages/publicapi/PublicapiMenu.tsx";
+import MysqlLayout from "./pages/nodejs/mysql/MysqlLayout.tsx";
+import MysTheory from "./pages/nodejs/mysql/MysTheory.tsx";
+import MysTables from "./pages/nodejs/mysql/MysTables.tsx";
+import MongoLayout from "./pages/nodejs/mongodb/MongoLayout.tsx";
+import MongoTheory from "./pages/nodejs/mongodb/MongoTheory.tsx";
+import NodejsMenu from "./pages/nodejs/NodejsMenu.tsx";
+import HtmlAccordion from "./pages/webdesign/HtmlAccordion.tsx";
+import HtmlCarousel from "./pages/webdesign/HtmlCarousel.tsx";
+import HtmlStaticWeb from "./pages/webdesign/HtmlStaticWeb.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Home />} />
       {/* home */}
+      <Route path="home-menu" element={<HomeMenu />} />
       <Route path="projects" element={<Projects />} />
       <Route path="portofolio-legacy" element={<Portofolio />} />
       {/* apps */}
+      <Route path="apps-menu" element={<AppsMenu />} />
       <Route path="clock" element={<Clock />} />
       <Route path="stopwatch" element={<Stopwatch />} />
       <Route path="symbol-color" element={<SymbolColor />} />
       <Route path="todo" element={<Todo />} />
-      {/* html */}
-      <Route path="html-accordion" element={<HtmlAccordion />} />
-      <Route path="html-carousel" element={<HtmlCarousel />} />
-      <Route path="html-accordion" element={<HtmlAccordion />} />
-      <Route path="html-static-web" element={<HtmlStaticWeb />} />
       {/* basic */}
+      <Route path="basic-menu" element={<BasicMenu />} />
       <Route path="sticky" element={<Sticky />} />
       <Route path="flip-text" element={<FlipText />} />
       <Route path="paginasi" element={<Paginasi />} />
@@ -103,18 +109,12 @@ const router = createBrowserRouter(
       <Route path="typescript-3" element={<Typescript3 />} />
       <Route path="google-font-pairing" element={<GoogleFontPairing />} />
       {/* components */}
+      <Route path="components-menu" element={<ComponentsMenu />} />
       <Route path="carousel" element={<Carousel />} />
       <Route path="accordion-1" element={<Accordion1 />} />
       <Route path="accordion-2" element={<Accordion2 />} />
-      {/* database */}
-      <Route path="mysql" element={<MysqlLayout />}>
-        <Route index element={<MysTheory />} />
-        <Route path="tables" element={<MysTables />} />
-      </Route>
-      <Route path="mongodb" element={<MongoLayout />}>
-        <Route index element={<MongoTheory />} />
-      </Route>
       {/* nodejs */}
+      <Route path="nodejs-menu" element={<NodejsMenu />} />
       <Route path="express" element={<Express />} />
       <Route path="api-mysql-v1" element={<MysV1Layout />}>
         <Route index element={<MysV1Home />} />
@@ -122,7 +122,15 @@ const router = createBrowserRouter(
         <Route path="add" element={<MysV1UsersAdd />} />
         <Route path="edit/:id" element={<MysV1UsersEdit />} />
       </Route>
+      <Route path="mysql" element={<MysqlLayout />}>
+        <Route index element={<MysTheory />} />
+        <Route path="tables" element={<MysTables />} />
+      </Route>
+      <Route path="mongodb" element={<MongoLayout />}>
+        <Route index element={<MongoTheory />} />
+      </Route>
       {/* public api */}
+      <Route path="publicapi-menu" element={<PublicapiMenu />} />
       <Route path="jsonplaceholder" element={<JpLayout />}>
         <Route index element={<Jp />} />
         <Route path="users" element={<JpUser />} />
@@ -141,6 +149,7 @@ const router = createBrowserRouter(
         <Route path="invoice" element={<SiskoInvoice />} />
       </Route>
       {/* framer */}
+      <Route path="framer-menu" element={<FramerMenu />} />
       <Route path="progress-bar-1" element={<ProgressBar1 />} />
       <Route path="bulb-1" element={<Bulb1 />} />
       <Route path="bulb-2" element={<Bulb2 />} />
@@ -149,12 +158,16 @@ const router = createBrowserRouter(
       <Route path="float-nav-1" element={<FloatNav1 />} />
       <Route path="float-nav-2" element={<FloatNav2 />} />
       <Route path="float-nav-3" element={<FloatNav3 />} />
-      {/* shadcnui */}
-      <Route path="shad-accordion" element={<AccordionShad />} />
-      {/* landing */}
+      {/* web design */}
+      <Route path="webdesign-menu" element={<WebdesignMenu />} />
       <Route path="landing-1" element={<Landing1 />} />
       <Route path="landing-2" element={<Landing2 />} />
+      <Route path="html-accordion" element={<HtmlAccordion />} />
+      <Route path="html-carousel" element={<HtmlCarousel />} />
+      <Route path="html-static-web" element={<HtmlStaticWeb />} />
+
       {/* react */}
+      <Route path="react-menu" element={<ReactMenu />} />
       <Route path="use-state" element={<UseState />} />
       <Route path="use-effect" element={<UseEffect />} />
       <Route path="use-ref" element={<UseRef />} />
