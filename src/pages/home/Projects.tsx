@@ -91,7 +91,7 @@ const projectsMenu = [
   },
 ];
 
-const badges = ["html", "css", "javascript", "react", "shadcn", "tailwind"];
+const badges = [...new Set(projectsMenu.flatMap((project) => project.tools))];
 
 export default function Projects() {
   const { pathname } = useLocation();

@@ -81,6 +81,7 @@ import NodejsMenu from "./pages/nodejs/NodejsMenu.tsx";
 import HtmlAccordion from "./pages/webdesign/HtmlAccordion.tsx";
 import HtmlCarousel from "./pages/webdesign/HtmlCarousel.tsx";
 import HtmlStaticWeb from "./pages/webdesign/HtmlStaticWeb.tsx";
+import SecHeader from "./pages/webdesign/sec-header/SecHeader.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -165,6 +166,7 @@ const router = createBrowserRouter(
       <Route path="html-accordion" element={<HtmlAccordion />} />
       <Route path="html-carousel" element={<HtmlCarousel />} />
       <Route path="html-static-web" element={<HtmlStaticWeb />} />
+      <Route path="sec-header" element={<SecHeader />} />
 
       {/* react */}
       <Route path="react-menu" element={<ReactMenu />} />

@@ -125,6 +125,7 @@ const menu = [
       { href: "/html-accordion", label: "Accordion" },
       { href: "/html-carousel", label: "Carousel" },
       { href: "/html-static-web", label: "Static Web" },
+      { href: "/sec-header", label: "Section Header" },
     ],
   },
 ];
