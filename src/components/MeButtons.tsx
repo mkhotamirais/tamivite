@@ -1,6 +1,6 @@
 "use client";
 
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaUser } from "react-icons/fa6";
 import { ChevronLeft } from "lucide-react";
 import { useMm } from "@/hooks/useMm";
 import { SiVite, SiNextdotjs } from "react-icons/si";
@@ -28,6 +28,11 @@ export function MeButtons() {
         } rounded-full transition absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full`}
       >
         <ChevronLeft className="size-4" />
+      </Button>
+      <Button asChild size="icon" className="rounded-full" variant="secondary">
+        <a title="my portfolio" href="https://tamiweb.vercel.app/portfolio">
+          <FaUser className="size-4" />
+        </a>
       </Button>
       <Button asChild size="icon" className="rounded-full" variant="secondary">
         <a title="linked account" href="https://www.linkedin.com/in/mkhotami-rais/">

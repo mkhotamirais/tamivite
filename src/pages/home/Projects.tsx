@@ -127,7 +127,7 @@ export default function Projects() {
         />
       )}
       {pathname === "/projects" && (
-        <div className="flex gap-1 flex-wrap my-2">
+        <div className="flex gap-1 flex-wrap my-3 justify-center">
           {badges.map((item, i) => (
             <Badge
               variant={selectedBadge.includes(item) ? "secondary" : "default"}

@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useMm } from "@/hooks/useMm";
 import Projects from "./home/Projects";
-import { MeButtons } from "@/components/MeButtons";
 
 export default function Home() {
   const { mm, openMm, closeMm, me, openMe, closeMe } = useMm();
@@ -14,7 +13,6 @@ export default function Home() {
 
   return (
     <div className="relative">
-      <MeButtons />
       <div className="p-3 min-h-screen flex flex-col text-center items-center justify-center bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-100 to-cyan-500">
         <div className="mb-8 flex gap-4 flex-col">
           <h1 className={"text-4xl text-center font-bold drop-shadow-md"}>Welcome</h1>
